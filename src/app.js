@@ -13,18 +13,18 @@ app.get('/musicians', async (req, res) => {
 });
 // GET 1st musician route
 app.get('/musicians/1', async (req, res) => {
-    const musician1 = await Musician.findByPk[0];
-    res.json(musician1);
+    const musician1 = await Musician.findAll({});
+    res.json(musician1[0]);
 });
 // GET 2nd musician route
 app.get('/musicians/2', async (req, res) => {
-    const musician2 = await Musician.findByPk[1];
-    res.json(musician2);
+    const musician2 = await Musician.findAll({});
+    res.json(musician2[1]);
 });
 // GET 3rd musician route
 app.get('/musicians/3', async (req, res) => {
-    const musician3 = await Musician.findByPk[2];
-    res.json(musician3);
+    const musician3 = await Musician.findAll({});
+    res.json(musician3[2]);
 });
 // GET bands route to return ALL bands
 app.get('/bands', async (req, res) => {
@@ -33,20 +33,24 @@ app.get('/bands', async (req, res) => {
 });
 // GET 1st band route
 app.get('/bands/1', async (req, res) => {
-    const band1 = await Band.findByPk[0];
-    res.json(band1);
+    const band1 = await Band.findAll({});
+    res.json(band1[0]);
 });
 // GET 2nd band route
 app.get('/bands/2', async (req, res) => {
-    const band2 = await Band.findByPk[1];
-    res.json(band2);
+    const band2 = await Band.findAll({});
+    res.json(band2[1]);
 });
 // GET 3rd band route
 app.get('/bands/3', async (req, res) => {
-    const band3 = await Band.findByPk[2];
-    res.json(band3);
+    const band3 = await Band.findAll({});
+    res.json(band3[2]);
 });
 
+//  part 2 route params- maybe update into above musicnas routes once complete
+// app.get('/musicians/:id', async (req, res) => {
+
+// })
 
 
 
