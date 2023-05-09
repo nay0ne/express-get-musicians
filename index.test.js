@@ -17,12 +17,15 @@ describe('./musicians endpoint', () => {
     // Write your tests here
     it("test musicians endpoint", async () => {
         const response = await request(app).get("/musicians");
+        //  endpoint is returned ok
         expect(response.statusCode).toBe(200);
+        // endpoint's data properties are as expected
         expect(response.body[0]).toHaveProperty("name");
         expect(response.body[0]).toHaveProperty("instrument");
     })
     it("returns musician array", async () => {
         const response = await request(app).get("/musicians");
+        // checks returned item is an array
         expect(Array.isArray(response.body)).toBe(true);
     });
     
@@ -36,7 +39,7 @@ describe('./bands endpoint', () => {
         expect(response.statusCode).toBe(200);
         expect(response.body[0]).toHaveProperty("name");
         expect(response.body[0]).toHaveProperty("genre");
-    })
+    });
     it("returns band array", async () => {
         const response = await request(app).get("/bands");
         expect(Array.isArray(response.body)).toBe(true);
