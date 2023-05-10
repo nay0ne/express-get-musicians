@@ -24,7 +24,7 @@ app.get('/bands', async (req, res) => {
     res.json(bands);
 });
 // GET specific band route
-aapp.get('/bands/:id', async (req, res) => {
+app.get('/bands/:id', async (req, res) => {
     const id = req.params.id;
     gimme = await Band.findByPk(id);
     res.json(gimme);
