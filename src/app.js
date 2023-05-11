@@ -13,34 +13,46 @@ app.get('/musicians', async (req, res) => {
     res.json(musicians);
 });
 // GET specific musician route
-app.get('/musicians/:id', async (req, res) => {
-    const id = req.params.id;
-    gimme = await Musician.findByPk(id);
-    res.json(gimme);
+app.get('/musicians/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        gimme = await Musician.findByPk(id);
+        res.json(gimme);
+    } catch (error) {
+        next (error);
+    }
 });
 
 // GET bands route to return ALL bands
-app.get('/bands', async (req, res) => {
-    const bands = await Band.findAll({});
-    res.json(bands);
+app.get('/bands', async (req, res, next) => {
+    try {
+        const bands = await Band.findAll({});
+        res.json(bands);
+    } catch (error) {
+        next (error);
+    }
 });
 // GET specific band route
-app.get('/bands/:id', async (req, res) => {
-    const id = req.params.id;
-    gimme = await Band.findByPk(id);
-    res.json(gimme);
+app.get('/bands/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        gimme = await Band.findByPk(id);
+        res.json(gimme);
+    } catch (error) {
+        next (error);
+    }
 });
 
 //  post request
-app.post('/musicians', async (req, res) => {
+app.post('/musicians', async (req, res, next) => {
    try { 
         const { name, instrument } = req.body;
         await Musician.create(req.body);
         res.send("New musician added");
-    } catch(error) {
-        next(error);
+    } catch (error) {
+        next (error);
     }
-})
+});
 
 
 
